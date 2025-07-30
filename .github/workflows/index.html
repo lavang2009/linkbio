@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinkBio - VANG FF</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Loading có tác giả -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>Đang tải...</p>
+    </div>
+
+    <!-- Nội dung chính -->
+    <button id="toggleMode">🌓 Chuyển chế độ</button>
+    <div class="container" style="display: none;">
+        <img src="avatar.jpg" alt="Avatar" class="avatar" />
+        <h1>@vangff.official</h1>
+        <p>🎮 Shop ACC Free Fire - Mua acc uy tín giá rẻ!</p>
+
+        <a href="https://zalo.me/0333096434" target="_blank" class="link">💬 Nhắn Zalo</a>
+        <a href="https://facebook.com/nyuamtubhmoobff" target="_blank" class="link">📘 Facebook</a>
+        <a href="https://shopaccff.com" target="_blank" class="link">🛒 Shop ACC Free Fire</a>
+        <a href="https://youtube.com/@vang_channel03" target="_blank" class="link">▶️ YouTube</a>
+        <a href="https://tiktok.com/@lavang.2009" target="_blank" class="link">🎵 TikTok</a>
+    </div>
+
+    <!-- Kiểm tra kết nối mạng -->
+    <script>
+        document.getElementById('toggleMode').onclick = () => {
+            document.body.classList.toggle('dark');
+        };
+
+        const loader = document.getElementById("loader");
+        const container = document.querySelector(".container");
+
+        function showWhenOnline() {
+            if (navigator.onLine) {
+                setTimeout(() => {
+                    loader.style.display = "none";
+                    container.style.display = "block";
+                }, 3000); // giữ loading ít nhất 3 giây
+            } else {
+                loader.innerHTML = "<div class='spinner'></div><p>Mạng yếu hoặc mất kết nối...<br>Đang chờ kết nối lại.</p><small class='author'>by VANG FF</small>";
+                setTimeout(showWhenOnline, 2000); // Kiểm tra lại sau 2s
+            }
+        }
+
+        window.addEventListener("load", showWhenOnline);
+    </script>
+</body>
+
+</html>
